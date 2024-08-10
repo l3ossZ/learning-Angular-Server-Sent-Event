@@ -1,3 +1,23 @@
+<form [formGroup]="eventForm" >
+  <div>
+    <label>number of event source</label>
+    <input type="number" formControlName="numberOfEvent">
+  </div>
+  <button (click)="onSubmit()">submit</button>
+</form>
+
+<h1>{{countOfEventSource}}</h1>
+
+<form [formGroup]="secondForm" >
+  <div>
+    <label>number of event source</label>
+    <input type="number" formControlName="numberOfEvent">
+  </div>
+  <button (click)="secondSubmit()">submit</button>
+</form>
+
+<h1>{{secondCountOfEventSource}}</h1>
+
 <table *ngIf="dataSource.length > 0">
   <thead>
   <tr>
