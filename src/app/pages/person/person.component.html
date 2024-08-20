@@ -23,18 +23,18 @@
   <tr>
     <th>ID</th>
     <th>Name</th>
-    <th>Age</th>
     <th>Email</th>
-    <th>Phone</th>
+    <th>Role</th>
+    <th>AccessKey</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let person of dataSource">
-    <td>{{ person.id }}</td>
-    <td>{{ person.name }}</td>
-    <td>{{ person.age }}</td>
-    <td>{{ person.email }}</td>
-    <td>{{ person.phone }}</td>
+  <tr *ngFor="let user of dataSource">
+    <td>{{ user.userId }}</td>
+    <td>{{ user.userName }}</td>
+    <td>{{ user.userEmail }}</td>
+    <td>{{ user.userRole }}</td>
+    <td>{{ user.accessKey }}</td>
   </tr>
   </tbody>
 </table>

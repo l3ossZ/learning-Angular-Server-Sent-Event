@@ -64,8 +64,8 @@ export class PersonComponent {
     //   this.closeEventSource();
     // };
     this.closeEventSource();
-    this.eventSource = new EventSource("http://localhost:8080/person/get-all-person");
-    this.eventSource.addEventListener('person',event => {
+    this.eventSource = new EventSource("https://localhost:8443/user/get-all-users");
+    this.eventSource.addEventListener('user',event => {
       this.zone.run(() => {
         this.dataSource.push(JSON.parse(event.data));
         this.dataSource.sort((a,b) => a.id - b.id);
@@ -96,8 +96,8 @@ export class PersonComponent {
 
   addNewEventSource(params:number ){
     for (let i = 0; i < params; i++) {
-      this.eventSource = new EventSource("http://localhost:8080/person/get-all-person");
-      this.eventSource.addEventListener('person',event => {
+      this.eventSource = new EventSource("https://localhost:8443/user/get-all-users");
+      this.eventSource.addEventListener('user',event => {
         this.zone.run(() => {
           this.dataSource.push(JSON.parse(event.data));
           this.dataSource.sort((a,b) => a.id - b.id);
@@ -109,6 +109,7 @@ export class PersonComponent {
       this.eventSource.onerror = (error) => {
         console.error('Error: ', error);
         this.dataSource=[];
+        this.closeEventSource();
       }
     }
     this.countOfEventSource+=params;
